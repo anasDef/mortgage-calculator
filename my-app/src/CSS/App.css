@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+:root {
+  /* Primary Colors */
+  --lime: hsl(61, 70%, 52%);
+  --red: hsl(4, 69%, 50%);
+
+  /* Neutral Colors */
+  --white: hsl(0, 0%, 100%);
+  --slate-100: hsl(202, 86%, 94%);
+  --slate-300: hsl(203, 41%, 72%);
+  --slate-500: hsl(200, 26%, 54%);
+  --slate-700: hsl(200, 24%, 40%);
+  --slate-900: hsl(202, 55%, 16%);
+
+  /* Typograpgy */
+  --main-font: "Plus Jakarta Sans", sans-serif;
+  --weight-500: 500;
+  --weight-700: 700;
+}
+
+/* 
+    ======================
+    GLOBAL RULES
+    ======================
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--slate-100);
+  font-family: var(--main-font);
+  padding: 20px;
+}
+
+.app {
+  display: flex;
+  width: 82vw;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--white);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.mortgage-form__button {
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--main-font);
+  color: var(--slate-900);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.mortgage-form__button:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+/* 
+    ======================
+    MORTGAGE FORM
+    ======================
+*/
+
+.mortgage-form {
+  width: 50%;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  transform: 2.3s;
+}
+
+/* === Mortgage form header === */
+.mortgage-form__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* title */
+.mortgage-form__title {
+  font-size: 26px;
+  color: var(--slate-900);
+}
+
+/* clear all button */
+
+.mortgage-form__button--clear {
+  background-color: var(--slate-100);
+  font-weight: var(--weight-500);
+  box-shadow: 0px 4px 0px var(--slate-900);
+}
+
+/* === Mortgage form form-element === */
+.mortgage-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* this is the div that contains the rate and term fields */
+.mortgage-form__form > div:nth-child(2) {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+/* === Mortgage form wrapper === */
+.mortgage-form__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.mortgage-form__label {
+  font-weight: var(--weight-500);
+  color: var(--slate-700);
+}
+
+/* === Mortgage form input group === */
+.mortgage-form__input-group {
+  border-radius: 8px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  transition: 0.3s;
+  overflow: hidden;
+  cursor: pointer;
+}
+.mortgage-form__input-group:hover {
+  width: 100%;
+  box-shadow: hsla(61, 70%, 52%, 0.705) 0px 3px 8px;
+}
+
+.mortgage-form__input-group:hover .mortgage-form__input-icon {
+  background-color: var(--lime);
+}
+
+.mortgage-form__input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 16px;
+  caret-color: var(--slate-900);
+  caret-shape: block;
+  font-size: 16px;
+  font-weight: var(--weight-700);
+  font-family: var(--main-font);
+  color: var(--slate-900);
+}
+
+.mortgage-form__input-icon {
+  padding: 16px;
+  background-color: var(--slate-300);
+  color: var(--slate-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--weight-500);
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.mortgage-form__input-group--type {
+  border: 1px solid var(--slate-100);
+  width: 100%;
+  padding: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  gap: 12px;
+}
+.mortgage-form__input-group--type:hover {
+  border: 1px solid var(--lime);
+  box-shadow: rgba(215, 218, 47, 0.705) 0px 3px 8px;
+}
+.mortgage-form__input-group--type:has(input:checked) {
+  border-color: var(--lime);
+  background-color: hsla(61, 70%, 52%, 0.315);
+  box-shadow: rgba(215, 218, 47, 0.705) 0px 3px 8px;
+}
+/* === Mortgage form calc button === */
+.mortgage-form__button--calc {
+  background-color: var(--lime);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0px 6px 0px hsl(61, 78%, 27%);
+  font-size: 15px;
+  font-weight: var(--weight-700);
+  width: fit-content;
+  padding: 12px;
+}
+
+.mortgage-form__button--calc.disabled {
+  pointer-events: none;
+  background-color: hsl(60, 12%, 73%);
+  box-shadow: none;
+}
+
+/* 
+    ======================
+    RESULT
+    ======================
+*/
+.result {
+  width: 50%;
+  background-color: var(--slate-900);
+  border-bottom-left-radius: 70px;
+}
+
+.result.show-result .result__info {
+  display: none;
+}
+
+.result.show-result .result__result-content {
+  display: flex;
+}
+
+/* === Result Info ==== */
+.result__info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-direction: column;
+  text-align: center;
+  padding: 16px;
+}
+
+.result__title {
+  color: var(--white);
+}
+
+.result__description {
+  color: var(--slate-300);
+}
+
+/* === Result result-content === */
+.result__result-content {
+  padding: 32px;
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.result__result-container {
+  background-color: hsl(201, 57%, 9%);
+  padding: 24px;
+  border-radius: 16px;
+  border-top: 3px solid var(--lime);
+}
+
+.result__monthly-repayments-group {
+  border-bottom: 1px solid var(--slate-500);
+  padding-bottom: 20px;
+}
+
+.result__monthly-repayments {
+  font-size: 48px;
+  font-weight: var(--weight-700);
+  margin-block: 12px;
+  color: var(--lime);
+}
+
+.result__term-group {
+  padding-top: 32px;
+}
+
+.result__term-repayments {
+  margin-block: 12px;
+  color: var(--white);
+}
+
+/* ===============================
+  FOR DEVICES THAT IS >= 991PX
+  ================================
+*/
+
+@media screen and (max-width: 991px) {
+  .app {
+    flex-direction: column;
+    width: 95vw;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .mortgage-form,
+  .result {
+    width: 100%;
+  }
+
+  .result {
+    border-radius: 0;
+  }
+
+  /* this is the div that contains the rate and term fields */
+  .mortgage-form__form > div:nth-child(2) {
+    flex-direction: column;
+  }
+}
